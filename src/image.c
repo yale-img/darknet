@@ -335,6 +335,7 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
     detection_with_class* selected_detections = get_actual_detections(dets, num, thresh, &selected_detections_num, names);
 
     // text output
+    /*
     qsort(selected_detections, selected_detections_num, sizeof(*selected_detections), compare_by_lefts);
     int i;
     for (i = 0; i < selected_detections_num; ++i) {
@@ -362,9 +363,11 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
             }
         }
     }
+    */
 
     // image output
     qsort(selected_detections, selected_detections_num, sizeof(*selected_detections), compare_by_probs);
+    int i;
     for (i = 0; i < selected_detections_num; ++i) {
             int width = im.h * .002;
             if (width < 1)
